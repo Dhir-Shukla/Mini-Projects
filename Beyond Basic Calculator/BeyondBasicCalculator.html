@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body style="background-color: salmon; font-color: powderblue;">
+
+<script type="text/javascript">
+
+getInput();
+
+function getInput(){
+	alert("what form of calculation would you require?");
+	var q = prompt("Enter multiplication, addition, division, or subtraction");
+	var x = Number(prompt("Enter your first value"));
+	var y = Number(prompt("Enter your second value"));
+	var z = Number("invalid");
+	
+		if(q === "multiplication"){
+				z = (x * y)
+			}
+		else if(q === "addition"){ 
+				z = (x + y) 
+			}
+		else if(q === "division"){
+				z = ( x / y)
+			}
+		else if(q === "subtraction"){
+				z = (x - y)
+			}
+		else {
+			alert("Invalid input. Try again");
+		}
+	
+			
+	document.write("Your answer is" + " "+ z);
+	
+	alert("Your answer is" + " "+ z);
+	getInput();
+}	
+
+</script>
+</body>
+</html>

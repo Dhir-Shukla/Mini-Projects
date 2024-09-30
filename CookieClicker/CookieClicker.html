@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head style="background-color: salmon; font-color: blue;">
+	<title>COOKIE CLICKER</title>
+
+	
+</head>
+
+<body style="background-color: black; text-align: center;" src= "http://www.physics.csbsju.edu/astro/CS/images/stars.N.1.b.gif">
+<p id="head" style="color: blue; font-size: 300%;">
+Tap the giant cookie...
+</p>
+<p>
+<img id="ckimg" onclick="Click()" src="PerfectCookie.png" style="height: 200px;">
+<img id="Coolkieimg" onclick="CoolClick()" src="Coolkie.png" style="height: 0px;">
+<img id="Happkieimg" onclick="HappyClick()" src="Happkie.png" style="height: 0px;">
+<img id="nextarrow" onclick="Nextcookie()" src="Unlocknext.png" style="width: 150px; top: 175px; left: 800px; position: absolute;">
+<img id="forwardarrow" onclick="Nxtcookie()" src="5000cookie.png" style="width: 0px; top: 175px; left: 800px; position: absolute;">
+
+<img id="Backarrow" onclick="Backarrow()" src="Moveback.png" style="width: 150px; top: 175px; right: 800px; position: absolute; visibility: hidden;">
+</p>
+
+<p id="Scorep" style="color: red; font-size: 300%;"> Cookies: 0</p>
+<p style="text-align: left;">
+<img id="packet" onclick="Sellpacket()" src="Sellpacket.png" style="width: 220px; visibility: hidden;"> "  "
+<img id="box" onclick="Sellbox()" src="Sellbox.png" style="width: 220px; visibility: hidden;"> "  "
+<img id="van" onclick="Sellvan()" src="Sellvan.png" style="width: 220px;visibility: hidden;"> "  "
+<img id="truck" onclick="Selltruck()" src="Selltruck.png" style="width: 220px;visibility: hidden;">"  "
+<img id="cargo" onclick="Sellcargo()" src="Sellcargo.png" style="width: 220px;visibility: hidden;">"  "
+<button style="background-color: black; width: 50px; right: 0px; bottom: 0px; position: absolute; border: transparent;" onclick="Boost()">Now u see me</button>
+
+</p>
+
+
+
+follow this text and you will find the clue, the button to infinite cookies is true..
+
+
+<script type="text/javascript">
+var Score = 0;
+var Coins = 0;
+var CONGRATS = 0;
+var CENTURIAN = 0;
+var NowYouSeeMe = 0;
+var Coolkie = 0;
+var Happkie = 0;
+	
+function Click()
+	{Score = Score + 1; Update();}
+function CoolClick()
+	{Score = Score + 2; Update();}
+function Boost()
+	{
+		Score = Score + 1000; Update(); 
+		if (NowYouSeeMe == 0) 
+			{alert("Now You See Me! You unlocked the NowYouSeeMe hack. Take an extra 1000 cookies.. Nice of us, right? "); NowYouSeeMe = 1;}
+	}
+
+function achievements()
+	{
+		if (Score == 1)
+		{
+			if (CONGRATS == 0) 
+			{alert("CONGRATS!  You baked your first cookie!"); CONGRATS = 1;}
+		}
+
+		if (Score <= 9) 
+			{document.getElementById("packet").style.visibility = "hidden";}
+		else {document.getElementById("packet").style.visibility = "visible";}
+		
+		if (Score == 100) 
+		{
+			if (CENTURIAN == 0)
+			{alert("CENTURIAN!  You baked 100 Cookies"); CENTURIAN = 1;}
+		}
+
+		if (Score <= 99) 
+			{document.getElementById("box").style.visibility = "hidden";}
+		else {document.getElementById("box").style.visibility = "visible";}
+
+		if (Score <= 499) 
+			{document.getElementById("van").style.visibility = "hidden"}
+		else {document.getElementById("van").style.visibility = "visible"}
+
+		if (Score <= 1000) 
+			{document.getElementById("truck").style.visibility = "hidden"}
+		else {document.getElementById("truck").style.visibility = "visible"}
+
+		if (Score <= 10000)
+			{document.getElementById("cargo").style.visibility = "hidden"}
+		else {document.getElementById("cargo").style.visibility = "visible"}
+	}
+function Sellpacket()
+{
+		Score = Score - 10;
+		Coins = Coins + 5;
+		Update();
+}
+function Sellbox()
+{
+		Score = Score - 100
+		Coins = Coins + 100
+		Update();
+}
+function Sellvan()
+{
+		Score = Score - 500
+		Coins = Coins + 750
+		Update();
+}
+function Selltruck()
+{
+		Score = Score - 1000
+		Coins = Coins + 2000
+		Update();
+}
+function Sellcargo()
+{
+		Score = Score - 10000
+		Coins = Coins + 50000
+		Update();
+}
+
+function Nextcookie()
+{
+	 
+	if( Coolkie == 0) 
+	{ 
+		if (Coins >= 1500)
+		{Coins = Coins - 1500; Coolkie = 1; Update();}
+		else{alert("You need more Coins!")}
+	 } 
+
+	if(Coolkie == 1) 
+		{
+			document.getElementById("Coolkieimg").style.height = "200px";
+			document.getElementById("ckimg").style.height = "0px";
+			document.getElementById("forwardarrow").style.width = "150px";
+			document.getElementById("nextarrow").style.width = "0px";
+			document.getElementById("nextarrow").style.visibility = "hidden";
+			document.getElementById("forwardarrow").style.visibility = "visibile";
+			Update();
+		}
+}
+function NxtCookie()
+{
+ 	if (Happkie == 0) 
+ 	{
+ 		if (Coins >= 5000) 
+ 			{Coins = Coins - 5000; Happkie = 1; Update();}
+ 		else{alert("You need more Coins!")}
+ 	}
+ 	if (Happkie == 1) 
+ 	{
+ 		document.getElementById("Coolkieimg").style.height = "0px";
+ 		document.getElementById("Happkieimg").style.height = "200px";
+ 		Update();
+ 	}
+}
+
+function Update() 
+{
+	document.getElementById("Scorep").innerHTML = "Cookies:" + " " + Score;
+		document.getElementById("head").innerHTML = "Coins:" + " " + Coins;
+		document.getElementById("head").style.color = "gold";
+		achievements();
+}
+for (var i = 0; i < Things.length; i++) {
+	Things[i]
+}
+</script>
+</body>
+</html>

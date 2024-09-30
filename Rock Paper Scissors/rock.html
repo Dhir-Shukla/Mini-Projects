@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+</head>
+<body id="body1">
+
+<h1 id = "cChoice" style="text-align: center; margin-bottom: 100px; font-size: 80px; font-style: italic">Computer Choice</h1>
+<div id="x" style="text-align: center; height: 100px"></div>
+<h1 id = "result" style="text-align : center; font-size: 100px; font-style: italic"> Result</h1>
+<button id="shootEvent">Start</button>
+
+
+<script type="text/javascript">
+ document.getElementById("body1").style.backgroundColor = "#9335DE"
+
+var result = document.getElementById('result');
+
+var cChoice = document.getElementById('cChoice');
+document.getElementById('shootEvent').addEventListener('click',function(){
+
+   
+
+
+    
+        var userChoice = prompt("Do you choose rock, paper or scissors?");
+    
+
+var computerChoice = Math.random();
+
+if (computerChoice < 0.34) 
+{
+    computerChoice = "rock";
+} 
+else if(computerChoice <= 0.67) {
+    computerChoice = "paper";
+} 
+
+else {
+    computerChoice = "scissors";
+} 
+
+console.log("Computer: " + computerChoice);
+
+cChoice.innerHTML = "The computer chose: " + computerChoice;
+
+if(computerChoice === "rock")
+{
+    var img = document.createElement("img");
+    img.src = "rockimage.jpg";
+var src = document.getElementById("x");
+ 
+src.appendChild(img);
+
+}
+if(computerChoice === "scissors")
+{
+    var img = document.createElement("img");
+    img.src = "scissorsimage.jpg"
+var src = document.getElementById("x");
+ 
+src.appendChild(img);
+
+}
+if(computerChoice === "paper")
+{
+    var img = document.createElement("img");
+    img.src = "paperimage.jpg";
+var src = document.getElementById("x");
+ 
+src.appendChild(img);
+
+}
+});
+
+
+
+ function compare (choice1, choice2) 
+ {
+    if(choice1 === choice2) {
+        return "The result is a tie!";
+    }
+
+    if (choice1 === "rock"){
+        if (choice2 === "scissors"){
+            return "you win";
+        }
+        else
+        {
+            return "computer wins";
+        }
+    }
+    if (choice1 === "paper"){
+        if (choice2 === "rock"){
+            return "you win";
+        }
+        else
+        {
+            return "computer wins";
+        }
+    }
+    if(choice1 === "scissors")
+    {
+    	if(choice2 === "paper")
+    	{
+    		return "you win";
+    	}
+    	else
+    	{
+    		return "computer wins";
+    	}
+    }
+
+    if (choice1!= "rock" && choice1!="paper" && choice1!="scissors")
+    {
+    	return "wrong option";
+    }
+}
+
+var choice = compare(userChoice, computerChoice);
+
+result.innerHTML = choice;
+
+</script>	
+
+</body>
+</html>

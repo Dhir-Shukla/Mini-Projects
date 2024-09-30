@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="stylesheet2.css"/>
+</head>
+<body>
+
+		<script type="text/javascript">
+
+		
+function startTime()
+{
+var today=new Date()   // to get the current time and date from the computer
+var h=today.getHours()  //extracts the hours from the current time
+var m=today.getMinutes() //extracts the minutes from the current time
+var s=today.getSeconds() //extracts the seconds from the current time  
+var ap="AM";             
+
+//to add AM or PM after time
+
+if(h>11) ap="PM";
+if(h>12) h=h-12;
+if(h==0) h=12;
+
+//to add a zero in front of numbers<10
+
+m=checkTime(m)
+s=checkTime(s)
+
+document.getElementById('clock').innerHTML=h+":"+m+":"+s+" "+ap
+var t=setTimeout('startTime()', 500)
+}
+
+function checkTime(i)
+{
+if (i<10)
+{ i="0" + i}
+return i
+}
+
+
+
+
+window.onload=startTime;
+
+</script>
+
+<div id="clock"></div>
+
+</body>
+</html>
